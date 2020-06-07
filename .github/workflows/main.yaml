@@ -67,20 +67,20 @@ jobs:
           docker tag ${{ github.event.repository.name }} docker.pkg.github.com/dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:latest
       - name: Push docker image
         run: |
-          docker push docker.pkg.github.com/dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:${{ github.sha }}
+          docker push docker.pkg.github.com/Dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:${{ github.sha }}
 
           if [ ${{ github.ref }} == 'refs/heads/master' ]
           then
-            docker push docker.pkg.github.com/dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:master
+            docker push docker.pkg.github.com/Dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:master
           elif [ ${{ github.ref }} == 'refs/heads/develop' ]
           then
-            docker push docker.pkg.github.com/dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:develop
+            docker push docker.pkg.github.com/Dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:develop
           elif [ ${{ github.ref }} == 'refs/heads/release/*' ]
           then
-            docker push docker.pkg.github.com/dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:release
+            docker push docker.pkg.github.com/Dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:release
           fi
 
-          docker push docker.pkg.github.com/dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:latest
+          docker push docker.pkg.github.com/Dragon1320/${{ github.event.repository.name }}/${{ github.event.repository.name }}:latest
   deploy:
     name: Deploy to kubernetes
     if: github.ref == 'refs/heads/develop'
