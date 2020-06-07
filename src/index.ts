@@ -26,10 +26,11 @@ if (!validateDefined([DISCORD_TOKEN, VICTIMS_LIST, SUBREDDIT_LIST, MESSAGE_LIST]
     const file = await fetch(randomPost.data.url).then((res) => res.buffer());
     const ext = randomPost.data.url.split(".").slice(-1)[0];
 
+    // TODO: make the spoiler an env var or something
     await Promise.all(
       victims.map((victim) => {
         const payload = new FormData();
-        payload.append("file", file, `SPOILER_hentai.${ext}`);
+        payload.append("file", file, `hentai.${ext}`);
         payload.append(
           "payload_json",
           JSON.stringify({
