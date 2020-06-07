@@ -1,0 +1,17 @@
+# node dirs
+node_modules
+dist
+coverage
+
+# dev env vars and secrets
+.env
+*.pem
+*.pub
+
+# logs and whatnot
+telepresence.log
+yarn-error.log
+
+# deployment
+regcred.yaml
+secret.yaml

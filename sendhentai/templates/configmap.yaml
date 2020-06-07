@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Release.Name }}-config"
+  namespace: {{ .Values.namespace }}
+data:
+  VICTIMS_LIST: "209040403918356481;396043590553567242"
+  SUBREDDIT_LIST: "hentai"
+  MESSAGE_LIST: "lel;teehee;enjoy lol;enjoy your daily dose of hentai lel;uwu whats this;owo;uwu"

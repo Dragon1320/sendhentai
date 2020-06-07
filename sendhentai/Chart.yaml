@@ -1,0 +1,10 @@
+apiVersion: v2
+name: sendhentai
+description: forcibly send random reddit hentai to unsuspecting victims on discord via dms
+
+type: application
+
+# chart version
+version: 0.1.0
+# app version
+appVersion: 0.1.0

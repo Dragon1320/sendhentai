@@ -1,0 +1,7 @@
+# node dirs
+node_modules
+dist
+coverage
+
+# configs
+*.js

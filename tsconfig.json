@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    // node 12+, useful features
+    "target": "ES2019",
+    "lib": ["ES2020"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    // compat
+    "module": "commonjs",
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+
+    // linting, code quality
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // dev
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    // qol (not more ../../../)
+    "baseUrl": "./",
+    // no unnecessary output
+    "removeComments": true,
+  }
+}

@@ -1,0 +1,38 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: "{{ .Release.Name }}-cronjob"
+  namespace: {{ .Values.namespace }}
+spec:
+  schedule: "{{ .Values.cronfrequency }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          imagePullSecrets:
+          - name: regcred
+          containers:
+          - name: pkgupdate-{{ .Release.Name }}
+            image: docker.pkg.github.com/{{ .Values.github }}/{{ .Release.Name }}/{{ .Release.Name }}:master
+            env:
+            - name: DISCORD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: DISCORD_TOKEN
+                  name: "{{ .Release.Name }}-secret"
+            - name: VICTIMS_LIST
+              valueFrom:
+                configMapKeyRef:
+                  key: VICTIMS_LIST
+                  name: "{{ .Release.Name }}-config"
+            - name: SUBREDDIT_LIST
+              valueFrom:
+                configMapKeyRef:
+                  key: SUBREDDIT_LIST
+                  name: "{{ .Release.Name }}-config"
+            - name: MESSAGE_LIST
+              valueFrom:
+                configMapKeyRef:
+                  key: MESSAGE_LIST
+                  name: "{{ .Release.Name }}-config"
