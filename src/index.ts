@@ -30,7 +30,7 @@ if (!validateDefined([DISCORD_TOKEN, VICTIMS_LIST, SUBREDDIT_LIST, MESSAGE_LIST]
     await Promise.all(
       victims.map((victim) => {
         const payload = new FormData();
-        payload.append("file", file, `hentai.${ext}`);
+        payload.append("file", file, `SPOILER_hentai.${ext}`);
         payload.append(
           "payload_json",
           JSON.stringify({

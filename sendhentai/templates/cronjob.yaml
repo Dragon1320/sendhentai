@@ -10,7 +10,8 @@ spec:
       template:
         metadata:
           annotations:
-            rollme: {{ randAlphaNum 5 | quote }}
+            # set automatically by github actions
+            sha: {{ .Values.sha }}
         spec:
           restartPolicy: OnFailure
           imagePullSecrets:

@@ -97,4 +97,4 @@ jobs:
       - name: Install helm
         run: curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 && chmod 700 get_helm.sh && ./get_helm.sh
       - name: Update deployment
-        run: helm upgrade ${{ github.event.repository.name }} ./sendhentai --install --atomic --namespace sendhentai --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig
+        run: helm upgrade ${{ github.event.repository.name }} ./sendhentai --install --atomic --namespace sendhentai --kubeconfig=$GITHUB_WORKSPACE/.kubeconfig --set-string sha=${{ github.sha }}
